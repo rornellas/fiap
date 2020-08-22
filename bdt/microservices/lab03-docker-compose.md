@@ -240,8 +240,9 @@ Vamos trabalhar com dois terminais abertos (**T1** e **T2**).
     Processing triggers for libc-bin (2.27-3ubuntu1) ...
     ```
 
-2. **[T1]** Navegar ate a pasta ***/fiap/aso/compose*** de este repositório *git*:
+2. **[T1]** Clonar [este repositório](https://github.com/josecastillolema/fiap) e navegar ate a pasta **`/fiap/aso/compose`**:
     ```
+    $ git clone https://github.com/josecastillolema/fiap.git
     $ cd fiap/aso/compose/
     $ pwd
     /home/ubuntu/fiap/aso/compose
@@ -250,9 +251,9 @@ Vamos trabalhar com dois terminais abertos (**T1** e **T2**).
 
     ```
 
-3. **[T1]** Mostrar o conteúdo do arquivo ***docker-compose.yml***. São definidos dois serviços:
-    - **api**: a API escrita em Python, que tem dependência (consulta) o serviço *mysql*
-    - **mysql**: o servidor MySQL, com mapeamento de portas (porta 3306), persistência de dados (pasta */var/lib/mysql*) e algumas variáveis de entorno
+3. **[T1]** Mostrar o conteúdo do arquivo **`docker-compose.yml`**. São definidos dois serviços:
+    - **api**: a API escrita em Python, que tem dependência com (consulta) o serviço *mysql*
+    - **mysql**: o servidor MySQL, com mapeamento de portas (porta 3306), persistência de dados (pasta `/var/lib/mysql`) e algumas variáveis de entorno
     ```yaml
     $ cat docker-compose.yml 
     version: '2'
@@ -279,7 +280,7 @@ Vamos trabalhar com dois terminais abertos (**T1** e **T2**).
            MYSQL_DATABASE: fiapdb
     ```
   
-4. **[T1]** Criar os serviços definidos no arquivo ***docker-compose.yml***:
+4. **[T1]** Criar os serviços definidos no arquivo **`docker-compose.yml`**:
     ```
     $ docker-compose up
     Creating network "compose_default" with the default driver
@@ -414,7 +415,7 @@ Vamos trabalhar com dois terminais abertos (**T1** e **T2**).
 
 5. **[T1]** (Opcional / Alternativa ao passo 4)
 
-    O comando anterior pode ser executado com a opção **-d**. De esta forma os containers são executados no *background*, e não será necessário usar dois terminais. Porém, temos menos visibilidade no que está acontecendo nos containers:
+    O comando anterior pode ser executado com a opção **`-d`**. De esta forma os containers são executados no *background*, e não será necessário usar dois terminais. Porém, temos menos visibilidade no que está acontecendo nos containers:
     ```
     $ docker-compose up -d
     Creating network "compose_default" with the default driver
@@ -424,7 +425,7 @@ Vamos trabalhar com dois terminais abertos (**T1** e **T2**).
     Creating compose_api_1 ... done
     ```
 
-6. **[T2]** Em um segundo terminal, confirmar que os serviços do Docker Compose foram criados corretamente. E necessário navegar ate pasta que contém o arquivo ***docker-compose.yml***.
+6. **[T2]** Em um segundo terminal, confirmar que os serviços do Docker Compose foram criados corretamente. E necessário navegar ate pasta que contém o arquivo **`docker-compose.yml`**.
     ```
     $ cd fiap/aso/compose/
     $ pwd
